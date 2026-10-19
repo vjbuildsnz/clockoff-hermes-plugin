@@ -36,6 +36,10 @@ old plugin.yaml, __init__.py, delivery.py and OWNER_RULES.md are absent from the
 installed package; otherwise an older native manifest can take precedence.
 Remove the former clockoff-hermes-runtime through plugin management if present.
 Enable normal Skills support and preload the registered core ClockOff skill
-using its actual qualified name where the managed profile requires it.
+and daily workflow using their actual qualified names. Managed profiles pin
+`clockoff` and `gym-daily` through native `skills.auto_load`; the daily workflow
+contains the scheduled-report delivery rule and avoids the generic summarize
+wrapper replacing a finished report. Discover the full registered names after
+installation rather than assuming a previous native package namespace.
 Preserve credentials, model, personality and schedules. Start a fresh session
 or use the host's supported reload, then run identity and report acceptance.
