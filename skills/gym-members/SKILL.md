@@ -89,7 +89,7 @@ For an older unresolved journey, include the event date and recorded contact, th
 
 For cancellation risk, active-member retention or an exact absence assessment, use `clockoff_get_retention_status`. If unavailable, explain the specific missing evidence briefly and offer to inspect the saved dated activity of one member the owner names; this is not a risk ranking. Stop there: do not automatically fetch `stopped_coming` or another proxy list. Missing retention evidence cannot become a risk label or reassuring zero.
 
-For a known full name, prefer member_name for full evidence in one read when the host advertises it. For a partial name use query, inspect the matches, and resolve ambiguity before acting. Use member_ref only for a reference actually returned by ClockOff. Do not combine name and reference. An exact name lookup covers only this gym's observed inbox, not its complete roster.
+For a known full name, prefer member_name for full evidence in one read when the host advertises it. For a partial name use query, inspect the matches, and resolve ambiguity before acting. Use member_ref only for a reference actually returned by ClockOff. Do not combine name and reference. Exact name lookup covers this gym's saved signed people, not a certified complete membership roster.
 
 For a time-budget or staff-handoff question, pick one supported task for the named time budget, use recorded responsibility, and prepare a two-line unsent handoff. If the brief lacks contact/assignment details, read the focused inbox before allocating work. Do not allocate a team-assigned task to the owner or invent a separate owner task. The first step is to check with the assigned team whether contact occurred outside ClockOff, then outreach if still needed. Do not turn a five-minute request into a whole-cohort outreach project.
 
@@ -110,3 +110,19 @@ Preserve event meanings: a sale-recorded date, booking-created date, scheduled c
 When a requested record has no saved trial service end date, say its end date is unknown; do not erase supported saved end dates from other records or infer expiry from purchase history. Before any expiry outreach, check the saved date/source and latest team contact. Do not promise provider verification, a refresh or future monitoring. For unavailable risk, offer to review one member the owner names using saved dated activity, without a risk label. Wait for that choice; do not offer or read a different cohort.
 
 For current observed trials or intro journeys, use `clockoff_ask_gym_database` with the owner’s question when advertised. Its saved-dashboard response can return `savedEndDate` and `endDateSource` for supported records; show those saved dates and their source, and preserve missing dates as unknown. The cohort may include recent journeys without a known end date, so inclusion alone does not prove a trial is active. Never calculate expiry from purchase date, offer duration or product name. This is an observed saved cohort, not a certified complete trial roster. For an explicit expiry window or historical trial period, preserve the requested question and date selectors: the current reader may refuse that filtered roster. Explain that specific limit and offer the current saved trial/end-date view without silently substituting it or querying a paid-member cohort. An unavailable or unknown expiry is not nobody expiring. Do not promise a refresh or call providers.
+
+## Complete named-member detail
+
+Use the exact-person `data.memberDetail` contract advertised by the current
+connection. It includes dated pass totals, remaining sessions and activation/
+expiry from saved booking updates and service snapshots, profile/waiver facts,
+class outcomes, contracts/assignments and both ClockOff team-history sources.
+Return the owner-relevant detail and practical next step; a generic follow-up
+offer is insufficient when they asked what was bought or how access works.
+Keep current unknowns separate from `lastReported` historical values. A saved
+pass expiry is not a ClassPass account credit expiry, and an old observed-history
+boundary is not a profile signup. Exact lookup can resolve saved signed people
+outside the capped signup inbox without broadening a filtered cohort list.
+Never reuse another pass's balance or expiry. Check current team entries and
+waiver concerns before advising another contact or visit. Missing data stays
+unknown; do not promise a paid refresh or monitoring.
