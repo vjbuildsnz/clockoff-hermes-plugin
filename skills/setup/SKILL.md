@@ -93,16 +93,21 @@ explicit profile configuration; plugin-only enable can report “not found in
 config” although the package runtime has discovered the server.
 
 When the owner asks whether skills are installed, distinguish package discovery,
-actual loading and preload. The package contains eight skills; the tested
-restricted F45 profile preloads six. Hermes Desktop's ordinary Skills page can
-omit package skills even when its runtime loads them. Use actual plugin/version
-and runtime loader evidence when available; do not claim the skills are missing
-or loaded into a conversation from that page alone. Select the intended profile
-in Plugins manager, enable ClockOff, and use Rescan for installed-package updates.
-A new session adopts enable changes; `/reload-skills` is not supported by the
-tested Desktop slash palette. Do not clear history or change credentials/model/
-schedules to refresh a package. Fresh installation remains manual ZIP extraction
-until a tested catalog/Git distribution is available.
+actual loading and preload. The package contains eight skills. The current
+Hillsborough profile enables Hermes's native Skills toolset and preloads the
+core and daily skills; no Python hooks are required. Hermes Desktop's ordinary
+Skills page can omit package skills although the portable loader discovers them.
+Use actual plugin/version and loader evidence. Install and update through the
+supported Git plugin manager using https://github.com/vjbuildsnz/clockoff-hermes-plugin.
+Do not clear history or change credentials, model or schedules to refresh it.
+
+## Try your gym's real-data demo
+
+When the owner requests a demo, follow the core skill's demo workflow and call
+`clockoff_run_demo`. Offer Run demo 1 for a guided tour and Run demo 2 for the
+full question menu. Both start with the morning brief, use permitted real gym
+and member data, and wait for the next selection. Installation/setup alone is
+not consent to start a tour, activate alerts or send a message.
 
 ## Showing saved ads in ChatGPT
 
