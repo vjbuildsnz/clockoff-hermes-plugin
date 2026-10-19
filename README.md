@@ -1,44 +1,41 @@
 # ClockOff for Hermes
 
-One plugin for your gym's ClockOff workflows. It contains eight shared skills and
-the report-handling code previously installed as a separate runtime plugin.
-It adds no tools, provider credentials, model provider, schedules or permissions.
+One standard Agent Plugin with eight shared skills and the ClockOff MCP address.
+No Python executable, custom hook, keyword router or separate runtime is installed.
 
-## Install
+## Install and connect
 
-In Hermes Desktop, use **Plugins → Install from Git** with this repository's URL,
-then enable **ClockOff** in the intended gym profile. On a hosted Hermes instance,
-use its plugin manager or `hermes -p <gym-profile> plugins install <repository> --enable`.
-Git installation and update are supported Hermes features; a particular cloud
-service may restrict plugin installation. Check its actual controls.
+Use Plugins → Install from Git in the intended gym profile:
+https://github.com/vjbuildsnz/clockoff-hermes-plugin
 
-## Connect your gym
+Or use `hermes -p <gym> plugins install vjbuildsnz/clockoff-hermes-plugin --enable`.
+The host loads root plugin.json, skills and mcp.json through its normal portable
+plugin support. A hosted provider needs to expose supported Git installation.
 
-Plugin installation does not sign in to ClockOff. In the same profile's
-**Connectors**, add a Streamable HTTP server named `clockoff` at
-`https://clockoff-preview.appwrite.network/mcp`, then complete ClockOff sign-in.
-Use the dedicated client configuration supplied for that gym/host where required.
-For a managed setup, staff place that installation's scoped key directly in secure
-connector settings. Never put a key in this repository, an installation link or chat.
+Enable Hermes's built-in Skills support for that profile. This is how Hermes
+finds and reads plugin instructions. A restricted profile that disables all
+skill tools also disables its normal skill discovery and configured preloads.
+ClockOff does not bypass that restriction or enable terminal/browser tools.
+The built-in Skills toolset includes local skill management; plugin-provided
+skills themselves are read-only. ClockOff staff verify the intended host policy.
 
-Already connected? Reuse the existing `clockoff` connector, credentials and schedules.
-Do not add a second server. Ask **Who am I connected as in ClockOff?**, then
-**What needs my attention today?** Confirm the gym and dated evidence.
+Then complete ClockOff gym sign-in through the profile's connector. Installation
+never signs you in or starts updates. An existing configured `clockoff` connector
+wins over the package entry; reuse its grant rather than creating a duplicate.
+Never put a key in this repository, an installation link or chat.
 
-## Update an existing two-component installation
+Ask **Who am I connected as in ClockOff?**, **What needs my attention today?**,
+and **Show my full morning brief**. Check the gym, dates, coverage and full report.
+The shared skills guide finished-report presentation; no Python code replaces
+the model's answer. Proactive updates need separate host support and opt-in.
 
-Staff back up the existing plugin folders, replace `clockoff` with this package,
-and disable the old `clockoff-hermes-runtime` using the profile's plugin manager.
-Keep that old folder for rollback. Enable ClockOff, run Plugin Doctor, and start
-a fresh session or use the supported gateway reload. Do not change authentication,
-personality files, schedules or model settings. Confirm one ClockOff entry is enabled.
+## Upgrade a previously customized setup
 
-## What the small Hermes-specific part does
-
-It loads a relevant shared workflow for restricted gym profiles and preserves
-successfully returned ClockOff briefings/attendance reports. An interrupted turn
-cannot overwrite the owner's new question with an older report. Business rules,
-gym access and data definitions remain on the ClockOff server.
-
-These callbacks are Hermes hooks, not MCP Events subscriptions. Installing the
-plugin does not enable alerts. Test updates separately in the intended host.
+Staff retain a private rollback copy and update this same Git plugin. Confirm
+old plugin.yaml, __init__.py, delivery.py and OWNER_RULES.md are absent from the
+installed package; otherwise an older native manifest can take precedence.
+Remove the former clockoff-hermes-runtime through plugin management if present.
+Enable normal Skills support and preload the registered core ClockOff skill
+using its actual qualified name where the managed profile requires it.
+Preserve credentials, model, personality and schedules. Start a fresh session
+or use the host's supported reload, then run identity and report acceptance.

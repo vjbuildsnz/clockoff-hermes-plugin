@@ -1,0 +1,56 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "clockoff",
+  "version": "0.11.1",
+  "description": "Gym priorities, member and class evidence, and guided campaign drafts through the ClockOff MCP.",
+  "author": {
+    "name": "ClockOff",
+    "url": "https://clockoff.ai"
+  },
+  "homepage": "https://clockoff.ai",
+  "keywords": [
+    "gyms",
+    "F45",
+    "BFT",
+    "campaigns",
+    "Mindbody"
+  ],
+  "extensions": {
+    "com.openai": {
+      "onboardingSkill": "./skills/setup/SKILL.md",
+      "interface": {
+        "displayName": "ClockOff",
+        "shortDescription": "Run your gym in ChatGPT",
+        "longDescription": "Use ClockOff in conversation for dated gym priorities, member journeys, unsent follow-up drafts and reviewed campaign planning. Native choices and image forms depend on host capabilities. An optional workspace and creative gallery complement chat. Booking coverage is partial. Saving a campaign does not publish it or spend money.",
+        "developerName": "ClockOff",
+        "category": "Productivity",
+        "capabilities": [
+          "Read gym observations",
+          "Browse saved campaign artwork",
+          "View collected current and past gym ads",
+          "Explore observed class bookings by time",
+          "Explore the new-member inbox",
+          "View offers and campaigns",
+          "Create draft campaign requests"
+        ],
+        "websiteURL": "https://clockoff.ai",
+        "defaultPrompt": [
+          "Start ClockOff. If current gym data supports a useful priority, tell me one; then offer three things I can do here.",
+          "What needs my attention today?",
+          "Who needs a personal welcome or first-class follow-up today?"
+        ],
+        "brandColor": "#174E4A",
+        "composerIcon": "./assets/icon.svg",
+        "logo": "./assets/icon.svg"
+      },
+      "apps": "./.app.json"
+    },
+    "com.nousresearch.hermes": {
+      "servers": {
+        "clockoff": {
+          "trust": "untrusted"
+        }
+      }
+    }
+  }
+}
