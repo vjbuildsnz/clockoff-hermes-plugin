@@ -144,9 +144,13 @@ If isTest is true, acknowledge briefly as a controlled delivery test, naming its
 kind and scheduled/detected times where useful. Assert no actual signup, member,
 booking or sales facts. No other gym tool is needed for a synthetic test.
 
-For a real briefing-ready event, the saved summary is the finished server brief.
-Preserve its numbers, periods and freshness; do not recalculate a different brief
-or create another timer. The event's morning primary period is the previous
+For a real briefing-ready event, the webhook summary is only a wake-up notice.
+Promptly make one exact `clockoff_get_monitoring_event` read. If respondToEvent
+is false, stay silent, including expired late-dispatched updates. Display its
+`data.answerCard` unchanged as the entire owner update. This private saved card
+contains permitted names, dated facts and actions from the scheduled snapshot.
+Do not display the generic notice, fetch a fresh briefing/status/member list,
+recalculate its facts or create another timer. The event's morning primary period is the previous
 civil day; evening's is midnight to the scheduled gym-local time. Additional
 sections explicitly label today/tomorrow or rolling periods. Two-hour bounded
 catch-up is not an exact source-update guarantee.

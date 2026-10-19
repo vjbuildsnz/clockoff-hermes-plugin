@@ -119,3 +119,11 @@ webhook delivery identity is the top-level `eventId`. Pass either exact supplied
 value to `clockoff_get_monitoring_event`. Do not derive a reference, use a latest
 event as a substitute or retry a delivered test. If neither identity is supplied,
 report that this alert could not be verified; do not invent facts or change setup.
+
+For scheduled MCP briefing events, promptly read the supplied eventRef or eventId
+once with `clockoff_get_monitoring_event`. The webhook summary is only a wake-up
+notice. Honour respondToEvent; false means stay silent, including expired alerts.
+Render the returned `data.answerCard` verbatim with permitted names, original
+scheduled facts and actions. Do not substitute a fresh briefing or add broad
+status/member reads. Receiver acceptance does not prove the Dot displayed it;
+keep those stages separate when investigating delays.
