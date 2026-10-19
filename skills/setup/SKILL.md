@@ -105,7 +105,7 @@ Do not clear history or change credentials, model or schedules to refresh it.
 
 When the owner requests a demo, follow the core skill's demo workflow and call
 `clockoff_run_demo`. Offer Run demo 1 for a guided tour and Run demo 2 for the
-full question menu. Both start with the morning brief, use permitted real gym
+full question menu. Both stay in the current AI client, start with the morning brief, use permitted real gym
 and member data, and wait for the next selection. Installation/setup alone is
 not consent to start a tour, activate alerts or send a message.
 
