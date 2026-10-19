@@ -9,6 +9,16 @@ Verify gym identity once per ordinary new conversation before relying on gym, ow
 
 # Daily gym check-in
 
+## Owner-requested demo exception
+
+For an active Run demo 1 or Run demo 2, follow the core demo workflow. Copy the
+finished report/card unchanged, then append the next numbered demo prompts from
+clockoff_run_demo under "Continue the demo". This explicit navigation-only
+exception overrides the entire-final-answer rules below for demos only. It is
+required even when an optional question panel may appear. Do not apply it to
+normal questions or scheduled report delivery. Answer one example, then wait.
+
+
 
 ## Finished live card answers
 
