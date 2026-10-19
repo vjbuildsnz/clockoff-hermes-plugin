@@ -36,13 +36,19 @@ and technical instructions. This demo-only presentation exception overrides the
 usual finished-card/brief copy rule. If they ask for the full report, preserve it
 unchanged. Ordinary questions and scheduled finished reports remain unchanged.
 
-After answering, call clockoff_run_demo with the same demo, example=currentId
-and choose_next=true to request the client's native question choice. Return an
-input_required form unchanged. If awaitingChoice is returned, show its short
-numbered choices and stop. Do not loop or claim clickable controls when native
-choices aren't supported. “Next” selects the next permitted workflow directly.
-Demo 2 offers all permitted questions; demo 1 suggests the next three. Let the
-owner finish a workflow (choosing a member or planning an ad) before moving on.
+For guided Demo 1, finish the answer in chat and give one short next-question
+prompt. STOP. When the owner says “Next”, call the next permitted example
+without opening a form. Never request a native question form after composing
+an answer: the client can obscure that answer while waiting for form input.
+
+When the owner explicitly asks for Run demo 2, the question menu or native
+question choices, call clockoff_run_demo(demo=2, example=1, choose_next=true)
+BEFORE answering. The client shows its native picker; once they select a
+question, read its real facts, answer in the conversation and STOP. If native
+forms are unavailable, show its short numbered menu. Do not reopen the picker
+automatically, loop, or claim plain text is clickable. A cancelled form pauses
+the demo. Let the owner finish choosing a member or planning an ad before
+moving to another workflow. They can ask their own questions at any point.
 
 For a personal follow-up, offer actual candidates and let the owner choose.
 Read that exact person's saved journey/contact evidence, then draft an unsent

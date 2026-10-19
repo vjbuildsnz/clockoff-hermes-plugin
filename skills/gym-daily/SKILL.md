@@ -15,9 +15,9 @@ For Run demo 1/2 follow the core native-client demo workflow. Give up to three
 supported priorities/people with reasons, next actions and material source
 limits in the conversation; use a returned ownerBrief without another read.
 This demo-only summary exception overrides the normal full-card/full-report
-copy rules below. Show a full requested report unchanged. Then request the
-client's native next-question choice through choose_next=true; when unsupported,
-show short numbered text choices and stop. Never apply this exception to an
+copy rules below. Show a full requested report unchanged. For the guided demo, finish with one short Next prompt and stop.
+Only open the native question picker BEFORE an answer when the owner requests
+Run demo 2/the menu. Do not hide the answer behind a pending native form. Never apply this exception to an
 ordinary question or a scheduled finished report.
 
 ## Finished live card answers
